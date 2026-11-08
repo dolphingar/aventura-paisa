@@ -1378,6 +1378,8 @@ function update() {
 
     player.x += player.vx;
     player.y += player.vy;
+    // no puede devolverse fuera del campo visual
+    if (player.x < camX + 2) { player.x = camX + 2; if (player.vx < 0) player.vx = 0; }
 
     player.onGround = false;
     for (let p of platforms) {
